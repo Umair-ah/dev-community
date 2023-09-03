@@ -12,4 +12,17 @@ class User < ApplicationRecord
     "Senior Java Developer",
     "Senior Front End Developer"
   ].freeze
+
+
+  def name
+    "#{first_name} #{last_name}".strip
+  end
+
+  def self.ransackable_attributes(auth_object = nil)
+    ["city", "country"]
+  end
+
+  def self.ransackable_associations(auth_object = nil)
+    []
+  end
 end
