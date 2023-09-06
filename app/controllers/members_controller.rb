@@ -20,4 +20,26 @@ class MembersController < ApplicationController
       end
     end
   end
+
+  def edit_personal_details; end
+
+  def update_personal_details
+    respond_to do |format|
+      if current_user.update(user_personal_info_params)
+        format.turbo_stream{
+          render turbo_stream: turbo_stream.replace(
+            'personal-details',
+            partial: 'members/personal_details',
+            locals: { user: current_user }
+          )
+        }
+      end
+    end
+  end
+
+  private
+
+  def user_personal_info_params
+    params.require(:user).permit(:first_name, :last_name, :country, :city, :state, :pincode, :profile_title)
+  end
 end
