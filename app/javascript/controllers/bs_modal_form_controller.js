@@ -1,11 +1,11 @@
 import { Controller } from "@hotwired/stimulus";
 
-// Connects to data-controller="edit-personal-details"
+// Connects to data-controller="bs-modal-form"
 export default class extends Controller {
   connect() {}
 
   initialize() {
-    this.element.setAttribute("data-action", "edit-personal-details#showModal");
+    this.element.setAttribute("data-action", "click->bs-modal-form#showModal");
   }
 
   showModal(event) {
@@ -13,7 +13,7 @@ export default class extends Controller {
     this.url = this.element.getAttribute("href");
     fetch(this.url, {
       headers: {
-        Accept: "text/vmd.turbo-stream.html",
+        Accept: "text/vnd.turbo-stream.html",
       },
     })
       .then((response) => response.text())
