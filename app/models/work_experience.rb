@@ -1,7 +1,14 @@
 class WorkExperience < ApplicationRecord
+
+  EMPLOYMENT_TYPE = ['Full-Time', 'Part-Time', 'Self-employeed', 'Freelance', 'Trainee', 'Internship']
+  LOCATION_TYPE = ['On-Site', 'Hybrid', 'Remote']
+
   belongs_to :user
-  validates :company, :start_date, :employment_type, :job_title,
-            :location, :location_type, presence: true
+  validates :company, :start_date, :job_title, :location, presence: true
+
+  validates :employment_type, presence :true, inclusion: { in: EMPLOYMENT_TYPE, message: 'not a valid employment type.' }
+  validates :location_type, presence :true, inclusion: { in: LOCATION_TYPE, message: 'not a valid lcoation type.' }
+
 
   validate :work_experience_last_date
   validate :presence_of_end_date
