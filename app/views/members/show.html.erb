@@ -54,35 +54,35 @@
 
   <div class="card mb-5">
     <div class="card-body">
-      <% if user_signed_in? && @user == current_user %>
         <div class="row">
           <div class="col-lg-4">
             <div class="d-flex justify-content-start">
               <h3>Work Experiences</h3>
             </div>
           </div>
+          <% if user_signed_in? && @user == current_user %>
 
-          <div class="col-lg-4">
-            <div class="d-flex justify-content-start">
-              <%= link_to new_work_experience_path, data: { controller: "bs-modal-form" } do %>
-                <i class="bi bi-plus"></i>Add Experience
-              <% end %>
-            </div>
-          </div>
-
-          <% if @user.work_experiences.present? %>
             <div class="col-lg-4">
               <div class="d-flex justify-content-start">
-                <%= link_to "javascript:void(0)" do %>
-                  <i class="bi bi-pencil-fill"></i>Edit Experience
+                <%= link_to new_work_experience_path, data: { controller: "bs-modal-form" } do %>
+                  <i class="bi bi-plus"></i>Add Experience
                 <% end %>
               </div>
             </div>
-          <% end %>
+
+            <% if @user.work_experiences.present? %>
+              <div class="col-lg-4">
+                <div class="d-flex justify-content-start">
+                  <%= link_to "javascript:void(0)" do %>
+                    <i class="bi bi-pencil-fill"></i>Edit Experience
+                  <% end %>
+                </div>
+              </div>
+            <% end %>
           
 
+          <% end %>
         </div>
-      <% end %>
 
       <% if @user.work_experiences.present? %>
         <ul class="list-group" id="work_experience_items">
