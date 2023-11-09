@@ -6,8 +6,8 @@ class WorkExperience < ApplicationRecord
   belongs_to :user
   validates :company, :start_date, :job_title, :location, presence: true
 
-  validates :employment_type, presence :true, inclusion: { in: EMPLOYMENT_TYPE, message: 'not a valid employment type.' }
-  validates :location_type, presence :true, inclusion: { in: LOCATION_TYPE, message: 'not a valid lcoation type.' }
+  validates :employment_type, presence: true, inclusion: { in: EMPLOYMENT_TYPE, message: 'not a valid employment type.' }
+  validates :location_type, presence: true, inclusion: { in: LOCATION_TYPE, message: 'not a valid lcoation type.' }
 
 
   validate :work_experience_last_date
