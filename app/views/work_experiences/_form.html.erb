@@ -4,9 +4,11 @@
     <div class="row">
       <% if @work_experience.errors.any? %>
         <% @work_experience.errors.each do |error| %>
-          <ul>
-            <%= error.full_message %>
+        <div class="error-area"> 
+          <ul style="color: red;">
+            <li><%= error.full_message %></li>
           </ul>
+        </div>
         <% end %>
       <% end %>
 

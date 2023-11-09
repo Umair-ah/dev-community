@@ -24,7 +24,7 @@ class WorkExperience < ApplicationRecord
 
   def presence_of_end_date
     if end_date.nil? && !currently_working_here
-      errods.add(:end_date, "must be present if you are not currently working in the company")
+      errors.add(:end_date, "must be present if you are not currently working in the company")
     end
   end
 
