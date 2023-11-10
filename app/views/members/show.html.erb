@@ -9,6 +9,7 @@
         <div class="card-body">
           <%= render 'personal_details', user: @user %>
         </div>
+        
       </div>
 
       <% if user_signed_in? && @user == current_user %>
@@ -20,6 +21,7 @@
           </div>
         </div>
       <% end %>
+
 
     </div>
   </div>
