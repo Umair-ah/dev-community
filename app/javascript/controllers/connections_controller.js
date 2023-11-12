@@ -7,7 +7,10 @@ export default class extends Controller {
   connect() {}
 
   initialize() {
-    this.element.setAttribute("data-action", "click->prepareConnectionParams");
+    this.element.setAttribute(
+      "data-action",
+      "click->connections#prepareConnectionParams"
+    );
   }
 
   prepareConnectionParams(event) {
@@ -30,7 +33,7 @@ export default class extends Controller {
       headers: {
         Accept: "text/vnd.turbo-stream.html",
         "X-CSRF-Token": document
-          .querySelector("meta[name='csrf-token']")
+          .querySelector('meta[name="csrf-token"]')
           .getAttribute("content"),
       },
       body: connectionBody,
