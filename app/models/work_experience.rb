@@ -61,7 +61,7 @@ class WorkExperience < ApplicationRecord
     if currently_working_here
       "#{start_date.strftime("%b" "%Y")} - Present (#{duration})"
     else
-      "#{start_date.strftime("%b" "%Y")}" - "#{end_date.strftime("%b" "%Y")} (#{duration})"
+      "#{start_date.strftime("%b" "%Y")} - #{end_date.strftime("%b" "%Y")} (#{duration})"
     end
   end
 
