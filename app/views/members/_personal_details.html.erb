@@ -4,8 +4,7 @@
   <p class="lead text-primary"><%= user.address %></p>
 </div>
 
-<div id="user-connection-status">
-  
+<div id="user-connection-status"> 
   <% if user_signed_in?  %>
     <% if current_user.check_if_already_connected?(user) %>
       <%= link_to "Connect", connections_path, class:"btn btn-primary", data: { controller:"connections", turbo_method: :post, requester_id: current_user.id, connected_id: user.id, connections_target:"connection" } %>
@@ -18,3 +17,9 @@
     <% end %>
   <% end %>
 </div>
+
+<% if @connections.present? %>
+  <div id='connection-count'>
+    <%= link_to pluralize(@connections.count, 'connection'), member_connections_path(user) %>
+  </div>
+<% end %>
